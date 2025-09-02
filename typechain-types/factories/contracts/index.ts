@@ -3,3 +3,4 @@
 /* eslint-disable */
 export * as payAndReceiptSol from "./PayAndReceipt.sol";
 export * as receiptsNftSol from "./ReceiptsNFT.sol";
+export { MockUSDC__factory } from "./MockUSDC__factory";

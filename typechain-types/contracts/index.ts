@@ -5,3 +5,4 @@ import type * as payAndReceiptSol from "./PayAndReceipt.sol";
 export type { payAndReceiptSol };
 import type * as receiptsNftSol from "./ReceiptsNFT.sol";
 export type { receiptsNftSol };
+export type { MockUSDC } from "./MockUSDC";
