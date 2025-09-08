@@ -5,14 +5,37 @@
       "stateMutability": "payable",
       "inputs": [
         { "name": "merchant", "type": "address" },
-        { "name": "code",     "type": "string"  },
-        { "name": "metaURI",  "type": "string"  }
+        { "name": "code", "type": "string" },
+        { "name": "metaURI", "type": "string" }
       ],
       "outputs": []
     },
-    {"type":"function","stateMutability":"payable","name":"payETH","inputs":[
-        {"name":"merchant","type":"address"},{"name":"code","type":"string"},{"name":"metaURI","type":"string"}],"outputs":[]},
-      {"type":"function","stateMutability":"nonpayable","name":"pay","inputs":[
-        {"name":"erc20","type":"address"},{"name":"amount","type":"uint256"},{"name":"merchant","type":"address"},{"name":"code","type":"string"},{"name":"metaURI","type":"string"}],"outputs":[]}
+    {
+      "type": "function",
+      "name": "pay",
+      "stateMutability": "nonpayable",
+      "inputs": [
+        { "name": "erc20", "type": "address" },
+        { "name": "amount", "type": "uint256" },
+        { "name": "merchant", "type": "address" },
+        { "name": "metaURI", "type": "string" },
+        { "name": "code", "type": "string" }
+      ],
+      "outputs": []
+    },
+    {
+      "type": "event",
+      "name": "ReceiptIssued",
+      "inputs": [
+        { "name": "receiptId", "type": "uint256", "indexed": true },
+        { "name": "payer",     "type": "address", "indexed": true },
+        { "name": "merchant",  "type": "address", "indexed": true },
+        { "name": "token",     "type": "address", "indexed": false },
+        { "name": "amount",    "type": "uint256", "indexed": false },
+        { "name": "code",      "type": "string",  "indexed": false },
+        { "name": "metaURI",   "type": "string",  "indexed": false }
+      ],
+      "anonymous": false
+    }
   ]
   

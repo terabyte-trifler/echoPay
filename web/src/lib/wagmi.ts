@@ -1,4 +1,3 @@
-// web/src/lib/wagmi.ts
 import { getDefaultConfig } from '@rainbow-me/rainbowkit';
 import { http } from 'wagmi';
 
@@ -12,7 +11,6 @@ export const sonicTestnet = {
   },
 } as const;
 
-// ✅ getDefaultConfig already returns a Wagmi config (no createConfig needed)
 export const wagmiConfig = getDefaultConfig({
   appName: 'echoPay',
   projectId: process.env.NEXT_PUBLIC_WALLETCONNECT_ID as string,
@@ -20,6 +18,5 @@ export const wagmiConfig = getDefaultConfig({
   transports: {
     [sonicTestnet.id]: http(sonicTestnet.rpcUrls.default.http[0]),
   },
-  // ✅ avoids WalletConnect using indexedDB on the server
   ssr: true,
 });

@@ -1,9 +1,10 @@
 import type { Metadata } from 'next';
-import { Providers } from './providers';
+import './globals.css';
+import { Providers } from '@/lib/providers';
 
 export const metadata: Metadata = {
   title: 'echoPay',
-  description: 'Pay & get NFT receipts on Sonic',
+  description: 'Pay and get an NFT receipt on Sonic',
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
