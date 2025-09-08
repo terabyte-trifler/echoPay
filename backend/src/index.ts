@@ -1,5 +1,6 @@
 import "dotenv/config";
 import express from "express";
+import { toUsd } from "./price";
 import cors from "cors";
 import { PrismaClient } from "@prisma/client";
 import { ethers } from "ethers";

@@ -1,24 +1,26 @@
-generator client {
-  provider = "prisma-client-js"
-}
+// prisma/schema.prisma
 
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
+generator client { provider = "prisma-client-js" }
+
 model Receipt {
-  id        String   @id @default(cuid())
-  chainId   Int
-  nftId     Int
-  payer     String
-  merchant  String
-  token     String        // "0x0000..." for native
-  amount    String        // bigint as string
-  code      String   @unique
-  metaURI   String
-  txHash    String
-  createdAt DateTime @default(now())
+  id          String   @id @default(cuid())
+  chainId     Int
+  nftId       Int
+  payer       String
+  merchant    String
+  token       String
+  amount      String
+  code        String   @unique
+  metaURI     String
+  txHash      String
+  tokenSymbol String?
+  usdAtTx     Float?
+  createdAt   DateTime @default(now())
 
   @@index([merchant])
   @@index([payer])

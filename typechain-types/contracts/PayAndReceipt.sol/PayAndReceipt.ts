@@ -25,12 +25,16 @@ import type {
 
 export interface PayAndReceiptInterface extends Interface {
   getFunction(
-    nameOrSignature: "owner" | "payETH" | "receipt"
+    nameOrSignature: "owner" | "pay" | "payETH" | "receipt"
   ): FunctionFragment;
 
   getEvent(nameOrSignatureOrTopic: "ReceiptIssued"): EventFragment;
 
   encodeFunctionData(functionFragment: "owner", values?: undefined): string;
+  encodeFunctionData(
+    functionFragment: "pay",
+    values: [AddressLike, BigNumberish, AddressLike, string, string]
+  ): string;
   encodeFunctionData(
     functionFragment: "payETH",
     values: [AddressLike, string, string]
@@ -38,6 +42,7 @@ export interface PayAndReceiptInterface extends Interface {
   encodeFunctionData(functionFragment: "receipt", values?: undefined): string;
 
   decodeFunctionResult(functionFragment: "owner", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "pay", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "payETH", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "receipt", data: BytesLike): Result;
 }
@@ -121,6 +126,18 @@ export interface PayAndReceipt extends BaseContract {
 
   owner: TypedContractMethod<[], [string], "view">;
 
+  pay: TypedContractMethod<
+    [
+      erc20: AddressLike,
+      amount: BigNumberish,
+      merchant: AddressLike,
+      code: string,
+      metaURI: string
+    ],
+    [void],
+    "nonpayable"
+  >;
+
   payETH: TypedContractMethod<
     [merchant: AddressLike, code: string, metaURI: string],
     [void],
@@ -136,6 +153,19 @@ export interface PayAndReceipt extends BaseContract {
   getFunction(
     nameOrSignature: "owner"
   ): TypedContractMethod<[], [string], "view">;
+  getFunction(
+    nameOrSignature: "pay"
+  ): TypedContractMethod<
+    [
+      erc20: AddressLike,
+      amount: BigNumberish,
+      merchant: AddressLike,
+      code: string,
+      metaURI: string
+    ],
+    [void],
+    "nonpayable"
+  >;
   getFunction(
     nameOrSignature: "payETH"
   ): TypedContractMethod<

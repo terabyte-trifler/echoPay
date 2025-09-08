@@ -2,8 +2,8 @@
   "_format": "hh-sol-cache-2",
   "files": {
     "/Users/terabyte_trifler/Documents/echoPay/contracts/PayAndReceipt.sol": {
-      "lastModificationDate": 1756818597311,
-      "contentHash": "dad7e0699c9da41ae510da8a94cf4425",
+      "lastModificationDate": 1757339406025,
+      "contentHash": "1fb23cf72974f0fb2c30fde9885c768a",
       "sourceName": "contracts/PayAndReceipt.sol",
       "solcConfig": {
         "version": "0.8.24",
@@ -34,6 +34,7 @@
         "^0.8.24"
       ],
       "artifacts": [
+        "IERC20",
         "IReceiptNFT",
         "PayAndReceipt"
       ]

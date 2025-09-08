@@ -1,0 +1,18 @@
+[
+    {
+      "type": "function",
+      "name": "payETH",
+      "stateMutability": "payable",
+      "inputs": [
+        { "name": "merchant", "type": "address" },
+        { "name": "code",     "type": "string"  },
+        { "name": "metaURI",  "type": "string"  }
+      ],
+      "outputs": []
+    },
+    {"type":"function","stateMutability":"payable","name":"payETH","inputs":[
+        {"name":"merchant","type":"address"},{"name":"code","type":"string"},{"name":"metaURI","type":"string"}],"outputs":[]},
+      {"type":"function","stateMutability":"nonpayable","name":"pay","inputs":[
+        {"name":"erc20","type":"address"},{"name":"amount","type":"uint256"},{"name":"merchant","type":"address"},{"name":"code","type":"string"},{"name":"metaURI","type":"string"}],"outputs":[]}
+  ]
+  
